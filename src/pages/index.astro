@@ -1,5 +1,5 @@
 ---
-
+const year = new Date().getFullYear();
 ---
 
 <html lang="en">
@@ -11,6 +11,142 @@
     <title>Portfolio - Sean Dodson</title>
   </head>
   <body>
-    <h1>Hello world!</h1>
+    <div class="min-h-screen">
+      <header>
+        <nav>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+      <main>
+        <section>
+          <p>Nice to meet you! I'm</p>
+          <h1>Sean Dodson</h1>
+          <p>
+            I’m a passionate software engineer who loves his craft and enjoys
+            working with others to solve problems. I specialize in building full
+            stack web applications at scale.
+          </p>
+        </section>
+        <section id="experience">
+          <h2>I’m a professional software engineer, with experience at</h2>
+          <article>
+            <img alt="" src="/paypal.png" />
+            <h3>PayPal</h3>
+            <div>Remote</div>
+            <div>Software Engineer</div>
+            <div>
+              <h4>Highlights</h4>
+              <ul>
+                <li>
+                  Building full stack web applications with React and GraphQL to
+                  acquire PayPal Credit customers
+                </li>
+                <li>
+                  Designed a micro-frontend integration for loading the PayPal
+                  Credit sign-up flow within PayPal Checkout
+                </li>
+                <li>
+                  Migrated the legacy PayPal Credit sign-up flow to a modern
+                  React and GraphQL stack
+                </li>
+                <li>
+                  Designed and led an initiative to support browser environments
+                  that had cookies disabled, resulting in +300 new PayPal Credit
+                  customers per day
+                </li>
+                <li>
+                  Collaborated with mobile teams to design GraphQL schemas
+                </li>
+                <li>
+                  Supported E2E testing teams for multiple successful feature
+                  launches
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4>Skills</h4>
+              <ul>
+                <li>
+                  <img alt="" />
+                  <div>JavaScript</div>
+                </li>
+              </ul>
+            </div>
+            <time>June 2021</time> - Present
+          </article>
+        </section>
+        <section id="education">
+          <h2>I went to school for software engineering at</h2>
+          <article>
+            <img alt="" src="/stevenson.png" />
+            <h3>Stevenson University</h3>
+            <div>Owings Mills, Maryland</div>
+            <div>
+              Bachelor of Science, Computer Information Systems (Software Track)
+            </div>
+            <div>GPA: 4.0</div>
+            <div>
+              <h4>Skills</h4>
+              <ul>
+                <li>
+                  <img alt="" />
+                  <div>JavaScript</div>
+                </li>
+              </ul>
+            </div>
+            <time>August 2017</time> - <time>December 2020</time>
+          </article>
+        </section>
+        <section id="projects">
+          <h2>
+            I’ve been writing code for fun since my teen years, building
+            personal projects such as
+          </h2>
+          <article>
+            <img alt="" src="/trade-fox.png" />
+            <h3>Trade Fox</h3>
+            <a href="https://tradefox.app">https://tradefox.app</a>
+            <div>
+              <h4>Highlights</h4>
+              <ul>
+                <li>
+                  A website for analyzing trades in fantasy football leagues
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4>Skills</h4>
+              <ul>
+                <li>
+                  <img alt="" />
+                  <div>JavaScript</div>
+                </li>
+              </ul>
+            </div>
+            <time>August 2017</time> - <time>December 2020</time>
+          </article>
+        </section>
+        <section id="contact">
+          <h2>Need help with anything? Let’s get in touch!</h2>
+          <div>
+            <label for="name">Name</label>
+            <input id="name" />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" />
+          </div>
+          <button>Send</button>
+        </section>
+      </main>
+    </div>
+    <footer>
+      <a href="https://github.com">GitHub</a>
+      <a href="https://linkedin.com">LinkedIn</a>
+      <p>Copyright © {year} Sean Dodson. All rights reserved.</p>
+    </footer>
   </body>
 </html>
