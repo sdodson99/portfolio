@@ -21,7 +21,7 @@ const projects = await getCollection("project");
   </head>
   <body>
     <div class="min-h-screen">
-      <header>
+      <header class="content-container">
         <nav>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
@@ -29,7 +29,7 @@ const projects = await getCollection("project");
           <a href="#contact">Contact</a>
         </nav>
       </header>
-      <main>
+      <main class="content-container">
         <section>
           <p>Nice to meet you! I'm</p>
           <h1>Sean Dodson</h1>
@@ -72,10 +72,29 @@ const projects = await getCollection("project");
         </section>
       </main>
     </div>
-    <footer>
+    <footer class="content-container">
       <a href="https://github.com">GitHub</a>
       <a href="https://linkedin.com">LinkedIn</a>
       <p>Copyright © {year} Sean Dodson. All rights reserved.</p>
     </footer>
   </body>
 </html>
+
+<style is:global>
+  h1 {
+    @apply text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-bold;
+  }
+
+  h3 {
+    @apply text-lg font-bold;
+  }
+
+  .content-container {
+    max-width: 800px;
+    margin: auto;
+  }
+</style>
