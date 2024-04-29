@@ -1,0 +1,61 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getEntries } from "astro:content";
+
+interface Props {
+  experience: CollectionEntry<"experience">;
+}
+
+const { experience } = Astro.props;
+
+const {
+  name,
+  location,
+  position,
+  highlights,
+  skills: skillReferences,
+  logoUrl,
+  startDate,
+  endDate,
+} = experience.data;
+
+const skills = await getEntries(skillReferences);
+---
+
+<article>
+  <img alt="" src={logoUrl} />
+  <h3>{name}</h3>
+  <div>{location}</div>
+  <div>{position}</div>
+  <div>
+    <h4>Highlights</h4>
+    <ul>
+      {highlights.map((highlight) => <li>{highlight}</li>)}
+    </ul>
+  </div>
+  <div>
+    <h4>Skills</h4>
+    <ul>
+      {
+        skills.map((skill) => (
+          <li>
+            <img alt="" />
+            <div>{skill.data.name}</div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <time datetime={startDate.toISOString()}
+    >{startDate.toLocaleDateString('en-us', {month: 'long', year: 'numeric'})}</time
+  >
+  - {
+    endDate ? (
+      <time datetime={endDate.toISOString()}>
+        {endDate.toLocaleDateString('en-us', {month: 'long', year: 'numeric'})}
+      </time>
+    ) : (
+      <div>Present</div>
+    )
+  }
+</article>

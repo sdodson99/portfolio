@@ -1,0 +1,17 @@
+{
+  "name": "PayPal",
+  "position": "Software Engineer",
+  "location": "Remote",
+  "highlights": [
+    "Building full stack web applications with React and GraphQL to acquire PayPal Credit customers",
+    "Designed a micro-frontend integration for loading the PayPal Credit sign-up flow within PayPal Checkout",
+    "Migrated the legacy PayPal Credit sign-up flow to a modern React and GraphQL stack",
+    "Designed and led an initiative to support browser environments that had cookies disabled, resulting in +300 new PayPal Credit customers per day",
+    "Collaborated with mobile teams to design GraphQL schemas",
+    "Supported E2E testing teams for multiple successful feature launches"
+  ],
+  "skills": ["typescript"],
+  "logoUrl": "",
+  "startDate": "2021-06-01",
+  "endDate": null
+}

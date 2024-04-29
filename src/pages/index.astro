@@ -1,5 +1,12 @@
 ---
+import { getCollection } from "astro:content";
+import Experience from "../entities/experience/experience.astro";
+
 const year = new Date().getFullYear();
+
+const experiences = await getCollection("experience");
+
+console.log(JSON.stringify(experiences, null, 2));
 ---
 
 <html lang="en">
@@ -32,51 +39,7 @@ const year = new Date().getFullYear();
         </section>
         <section id="experience">
           <h2>I’m a professional software engineer, with experience at</h2>
-          <article>
-            <img alt="" src="/paypal.png" />
-            <h3>PayPal</h3>
-            <div>Remote</div>
-            <div>Software Engineer</div>
-            <div>
-              <h4>Highlights</h4>
-              <ul>
-                <li>
-                  Building full stack web applications with React and GraphQL to
-                  acquire PayPal Credit customers
-                </li>
-                <li>
-                  Designed a micro-frontend integration for loading the PayPal
-                  Credit sign-up flow within PayPal Checkout
-                </li>
-                <li>
-                  Migrated the legacy PayPal Credit sign-up flow to a modern
-                  React and GraphQL stack
-                </li>
-                <li>
-                  Designed and led an initiative to support browser environments
-                  that had cookies disabled, resulting in +300 new PayPal Credit
-                  customers per day
-                </li>
-                <li>
-                  Collaborated with mobile teams to design GraphQL schemas
-                </li>
-                <li>
-                  Supported E2E testing teams for multiple successful feature
-                  launches
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4>Skills</h4>
-              <ul>
-                <li>
-                  <img alt="" />
-                  <div>JavaScript</div>
-                </li>
-              </ul>
-            </div>
-            <time>June 2021</time> - Present
-          </article>
+          {experiences.map(experience => <Experience experience={experience} />)}
         </section>
         <section id="education">
           <h2>I went to school for software engineering at</h2>
@@ -137,7 +100,7 @@ const year = new Date().getFullYear();
           </div>
           <div>
             <label for="message">Message</label>
-            <textarea id="message" />
+            <textarea id="message"></textarea>
           </div>
           <button>Send</button>
         </section>
