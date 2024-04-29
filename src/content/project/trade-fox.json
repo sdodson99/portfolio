@@ -1,0 +1,15 @@
+{
+  "name": "Trade Fox",
+  "url": "https://tradefox.app",
+  "highlights": [
+    "A website for analyzing trades in fantasy football leagues",
+    "Iterated and pivoted on concept to find market fit",
+    "Leveraged streaming SSR via NextJS app router to optimize performance",
+    "Setup E2E tests to verify functionality and deploy with confidence",
+    "Setup automated Lighthouse scans to monitor core web vitals and other metrics throughout development"
+  ],
+  "skills": ["typescript"],
+  "logoUrl": "",
+  "startDate": "2023-08-01",
+  "endDate": "2023-12-01"
+}

@@ -5,21 +5,20 @@ import Timespan from "../time/timespan.astro";
 import SkillListing from "../skill/skill-listing.astro";
 
 interface Props {
-  education: CollectionEntry<"education">;
+  project: CollectionEntry<"project">;
 }
 
-const { education } = Astro.props;
+const { project } = Astro.props;
 
 const {
   name,
-  location,
-  degree,
-  gpa,
+  url,
+  highlights,
   skills: skillReferences,
   logoUrl,
   startDate,
   endDate,
-} = education.data;
+} = project.data;
 
 const skills = await getEntries(skillReferences);
 ---
@@ -27,9 +26,13 @@ const skills = await getEntries(skillReferences);
 <article>
   <img alt="" src={logoUrl} />
   <h3>{name}</h3>
-  <div>{location}</div>
-  <div>{degree}</div>
-  <div>GPA: {gpa}</div>
+  <div>{url}</div>
+  <div>
+    <h4>Highlights</h4>
+    <ul>
+      {highlights.map((highlight) => <li>{highlight}</li>)}
+    </ul>
+  </div>
   <div>
     <h4>Skills</h4>
     <SkillListing skills={skills} />
