@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { getEntries } from "astro:content";
+import Timespan from "../time/timespan.astro";
 
 interface Props {
   experience: CollectionEntry<"experience">;
@@ -46,16 +47,5 @@ const skills = await getEntries(skillReferences);
       }
     </ul>
   </div>
-  <time datetime={startDate.toISOString()}
-    >{startDate.toLocaleDateString('en-us', {month: 'long', year: 'numeric'})}</time
-  >
-  - {
-    endDate ? (
-      <time datetime={endDate.toISOString()}>
-        {endDate.toLocaleDateString('en-us', {month: 'long', year: 'numeric'})}
-      </time>
-    ) : (
-      <div>Present</div>
-    )
-  }
+  <Timespan startDate={startDate} endDate={endDate} />
 </article>

@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  skills: CollectionEntry<"skill">[];
+}
+
+const { skills } = Astro.props;
+---
+
+<ul>
+  {
+    skills.map((skill) => (
+      <li>
+        <img alt="" src={skill.data.logoUrl} />
+        <div>{skill.data.name}</div>
+      </li>
+    ))
+  }
+</ul>
