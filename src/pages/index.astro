@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import Experience from "../entities/experience/experience.astro";
+import Education from "../entities/education/education.astro";
 
 const year = new Date().getFullYear();
 
 const experiences = await getCollection("experience");
-
-console.log(JSON.stringify(experiences, null, 2));
+const educations = await getCollection("education");
 ---
 
 <html lang="en">
@@ -39,29 +39,15 @@ console.log(JSON.stringify(experiences, null, 2));
         </section>
         <section id="experience">
           <h2>I’m a professional software engineer, with experience at</h2>
-          {experiences.map(experience => <Experience experience={experience} />)}
+          {
+            experiences.map((experience) => (
+              <Experience experience={experience} />
+            ))
+          }
         </section>
         <section id="education">
           <h2>I went to school for software engineering at</h2>
-          <article>
-            <img alt="" src="/stevenson.png" />
-            <h3>Stevenson University</h3>
-            <div>Owings Mills, Maryland</div>
-            <div>
-              Bachelor of Science, Computer Information Systems (Software Track)
-            </div>
-            <div>GPA: 4.0</div>
-            <div>
-              <h4>Skills</h4>
-              <ul>
-                <li>
-                  <img alt="" />
-                  <div>JavaScript</div>
-                </li>
-              </ul>
-            </div>
-            <time>August 2017</time> - <time>December 2020</time>
-          </article>
+          {educations.map((education) => <Education education={education} />)}
         </section>
         <section id="projects">
           <h2>

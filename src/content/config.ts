@@ -17,6 +17,23 @@ const experienceCollection = defineCollection({
   }),
 });
 
+const educationCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    name: z.string(),
+    degree: z.string(),
+    location: z.string(),
+    gpa: z.number(),
+    skills: z.array(reference("skill")),
+    logoUrl: z.string(),
+    startDate: z.string().transform((value) => new Date(value)),
+    endDate: z
+      .string()
+      .transform((value) => new Date(value))
+      .nullable(),
+  }),
+});
+
 const skillCollection = defineCollection({
   type: "data",
   schema: z.object({
@@ -27,5 +44,6 @@ const skillCollection = defineCollection({
 
 export const collections = {
   experience: experienceCollection,
+  education: educationCollection,
   skill: skillCollection,
 };

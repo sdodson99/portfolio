@@ -1,0 +1,10 @@
+{
+  "name": "Stevenson University",
+  "degree": "Bachelor of Science, Computer Information Systems (Software Track)",
+  "location": "Owings Mills, Maryland",
+  "gpa": 4.0,
+  "skills": ["typescript"],
+  "logoUrl": "",
+  "startDate": "2017-08-01",
+  "endDate": "2020-12-01"
+}
