@@ -21,9 +21,9 @@ const projects = await getCollection("project");
   </head>
   <body>
     <header class="sticky top-0 py-4">
-      <div>
+      <div class="content-container">
         <div
-          class="content-container flex justify-between rounded-2xl border bg-white px-8 py-4 shadow-lg"
+          class="flex justify-between rounded-2xl border bg-white px-8 py-4 shadow-lg"
         >
           <div id="currentNavTitleItemDisplay">Overview</div>
           <nav>
@@ -132,6 +132,7 @@ const projects = await getCollection("project");
 
   .content-container {
     max-width: 650px;
-    margin: auto;
+    
+    @apply m-auto px-8;
   }
 </style>
