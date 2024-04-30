@@ -1,0 +1,14 @@
+---
+interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<section class="min-h-screen py-12">
+  <div data-nav-title={title} class="relative -top-48"></div>
+  <div id={id} class="relative -top-44"></div>
+  <slot />
+</section>

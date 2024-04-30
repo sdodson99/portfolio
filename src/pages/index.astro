@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Experience from "../entities/experience/experience.astro";
 import Education from "../entities/education/education.astro";
 import Project from "../entities/project/project.astro";
+import NavSection from "../widgets/nav-section.astro";
 
 const year = new Date().getFullYear();
 
@@ -25,7 +26,7 @@ const projects = await getCollection("project");
         <div
           class="flex justify-between rounded-2xl border bg-white px-8 py-4 shadow-lg"
         >
-          <div id="currentNavTitleItemDisplay">Overview</div>
+          <div id="currentNavSectionTitleDisplay">Overview</div>
           <nav>
             <a href="#overview">Overview</a>
             <a href="#experience">Experience</a>
@@ -34,69 +35,60 @@ const projects = await getCollection("project");
             <a href="#contact">Contact</a>
           </nav>
           <script>
-            const currentNavTitleItemDisplay = document.querySelector(
-              "#currentNavTitleItemDisplay"
+            const currentNavSectionTitleDisplay = document.querySelector(
+              "#currentNavSectionTitleDisplay"
             );
-            const navTitleItems = [
+            const navSectionTitles = [
               ...document.querySelectorAll("[data-nav-title]"),
             ];
 
-            function updateCurrentNavTitleItem() {
-              const currentNavTitleItem = navTitleItems
+            function updateCurrentNavSectionTitle() {
+              const currentNavSection = navSectionTitles
                 .filter((item) => item.getBoundingClientRect().y <= 0)
                 .sort((item) => item.getBoundingClientRect().y)[0];
 
-              if (currentNavTitleItemDisplay) {
-                currentNavTitleItemDisplay.textContent =
-                  currentNavTitleItem?.getAttribute("data-nav-title") ??
+              if (currentNavSectionTitleDisplay) {
+                currentNavSectionTitleDisplay.textContent =
+                  currentNavSection?.getAttribute("data-nav-title") ??
                   "Overview";
               }
             }
 
-            window.addEventListener("scroll", updateCurrentNavTitleItem);
+            window.addEventListener("scroll", updateCurrentNavSectionTitle);
           </script>
         </div>
       </div>
     </header>
     <main class="content-container">
-      <section class="min-h-screen py-12">
-        <div id="overview" class="relative -top-48" data-nav-title="Overview"></div>
+      <NavSection id="overview" title="Overview">
         <p class="text-slate-700">Nice to meet you! I'm</p>
         <h1 class="mt-8">Sean Dodson</h1>
-        <p class="text-slate-700 mt-8">
+        <p class="mt-8 text-slate-700">
           I’m a passionate software engineer who loves his craft and enjoys
           working with others to solve problems. I specialize in building full
           stack web applications at scale.
         </p>
-      </section>
-      <section class="min-h-screen py-12">
-        <div data-nav-title="Experience" class="relative -top-48"></div>
-        <div id="experience" class="relative -top-44"></div>
+      </NavSection>
+      <NavSection id="experience" title="Experience">
         <h2>I’m a professional software engineer, with experience at</h2>
         {
           experiences.map((experience) => (
             <Experience experience={experience} />
           ))
         }
-      </section>
-      <section class="min-h-screen py-12">
-        <div data-nav-title="Education" class="relative -top-48"></div>
-        <div id="education" class="relative -top-44"></div>
+      </NavSection>
+      <NavSection id="education" title="Education">
         <h2>I went to school for software engineering at</h2>
         {educations.map((education) => <Education education={education} />)}
-      </section>
-      <section class="min-h-screen py-12">
-        <div data-nav-title="Projects" class="relative -top-48"></div>
-        <div id="projects" class="relative -top-44"></div>
+      </NavSection>
+      <NavSection id="projects" title="Projects">
         <h2>
           I’ve been writing code for fun since my teen years, building personal
           projects such as
         </h2>
         {projects.map((project) => <Project project={project} />)}
-      </section>
-      <section class="min-h-screen py-12">
-        <div data-nav-title="Contact" class="relative -top-48"></div>
-        <div id="contact" class="relative -top-44"></div>
+      </NavSection>
+      <NavSection id="contact" title="Contact">
         <h2>Need help with anything? Let’s get in touch!</h2>
         <div>
           <label for="name">Name</label>
@@ -107,7 +99,7 @@ const projects = await getCollection("project");
           <textarea id="message"></textarea>
         </div>
         <button>Send</button>
-      </section>
+      </NavSection>
     </main>
     <footer class="content-container">
       <a href="https://github.com">GitHub</a>
@@ -132,7 +124,7 @@ const projects = await getCollection("project");
 
   .content-container {
     max-width: 650px;
-    
+
     @apply m-auto px-8;
   }
 </style>
