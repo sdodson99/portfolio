@@ -1,15 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import Experience from "../entities/experience/experience.astro";
-import Education from "../entities/education/education.astro";
 import Project from "../entities/project/project.astro";
 import NavSection from "../widgets/nav-section/nav-section.astro";
 import Header from "../widgets/header/header.astro";
 
 const year = new Date().getFullYear();
 
-const experiences = await getCollection("experience");
-const educations = await getCollection("education");
 const projects = await getCollection("project");
 ---
 
@@ -34,24 +30,9 @@ const projects = await getCollection("project");
           stack web applications at scale.
         </p>
       </NavSection>
-      <NavSection id="experience" title="Experience">
-        <h2>I’m a professional software engineer, with experience at</h2>
-        {
-          experiences.map((experience) => (
-            <div class="mt-24">
-              <Experience experience={experience} />
-            </div>
-          ))
-        }
-      </NavSection>
-      <NavSection id="education" title="Education">
-        <h2>I went to school for software engineering at</h2>
-        {educations.map((education) => <Education education={education} />)}
-      </NavSection>
       <NavSection id="projects" title="Projects">
         <h2>
-          I’ve been writing code for fun since my teen years, building personal
-          projects such as
+          Check out some of my personal projects!
         </h2>
         {projects.map((project) => <Project project={project} />)}
       </NavSection>

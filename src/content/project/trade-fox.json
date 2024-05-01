@@ -8,7 +8,7 @@
     "Setup E2E tests to verify functionality and deploy with confidence",
     "Setup automated Lighthouse scans to monitor core web vitals and other metrics throughout development"
   ],
-  "skills": ["typescript"],
+  "skills": ["typescript", "nextjs", "react", "nodejs"],
   "logoUrl": "",
   "startDate": "2023-08-01",
   "endDate": "2023-12-01"
