@@ -25,9 +25,10 @@ const projects = await getCollection("project");
     <Header />
     <main class="content-container">
       <NavSection id="overview" title="Overview">
-        <p class="text-slate-700">Nice to meet you! I'm</p>
+        <div class="mt-32"></div>
+        <p class="text-slate-700 text-lg">Nice to meet you! I'm</p>
         <h1 class="mt-8">Sean Dodson</h1>
-        <p class="mt-8 text-slate-700">
+        <p class="mt-8 text-slate-700 text-lg">
           I’m a passionate software engineer who loves his craft and enjoys
           working with others to solve problems. I specialize in building full
           stack web applications at scale.
@@ -75,7 +76,7 @@ const projects = await getCollection("project");
 
 <style is:global>
   h1 {
-    @apply text-4xl font-bold;
+    @apply text-5xl font-bold;
   }
 
   h2 {
