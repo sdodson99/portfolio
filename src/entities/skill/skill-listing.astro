@@ -8,12 +8,17 @@ interface Props {
 const { skills } = Astro.props;
 ---
 
-<ul>
+<ul class="flex">
   {
     skills.map((skill) => (
       <li>
-        <img alt="" src={skill.data.logoUrl} />
-        <div>{skill.data.name}</div>
+        <img
+          class="mb-2 mr-2"
+          alt={skill.data.name}
+          height="35"
+          width="35"
+          src={skill.data.logoUrl}
+        />
       </li>
     ))
   }

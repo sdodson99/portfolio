@@ -12,21 +12,27 @@ function formatDate(date: Date | null) {
   }
 
   return date.toLocaleDateString("en-us", {
-    month: "long",
+    month: "short",
     year: "numeric",
     timeZone: "UTC",
-  });
+  }).replaceAll(' ', '\u00a0');
 }
 
 const startDateDisplay = formatDate(startDate);
 const endDateDisplay = formatDate(endDate);
 ---
 
-<time datetime={startDate.toISOString()}>{startDateDisplay}</time>
-- {
-  endDate ? (
-    <time datetime={endDate.toISOString()}>{endDateDisplay}</time>
-  ) : (
-    <div>Present</div>
-  )
-}
+<div class="text-right">
+  <time class="inline" datetime={startDate.toISOString()}
+    >{startDateDisplay}</time
+  >
+  - {
+    endDate ? (
+      <time class="inline" datetime={endDate.toISOString()}>
+        {endDateDisplay}
+      </time>
+    ) : (
+      <div class="inline">Present</div>
+    )
+  }
+</div>

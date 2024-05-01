@@ -26,9 +26,9 @@ const projects = await getCollection("project");
     <main class="content-container">
       <NavSection id="overview" title="Overview">
         <div class="mt-32"></div>
-        <p class="text-slate-700 text-lg">Nice to meet you! I'm</p>
+        <p class="text-lg text-slate-700">Nice to meet you! I'm</p>
         <h1 class="mt-8">Sean Dodson</h1>
-        <p class="mt-8 text-slate-700 text-lg">
+        <p class="mt-8 text-lg text-slate-700">
           I’m a passionate software engineer who loves his craft and enjoys
           working with others to solve problems. I specialize in building full
           stack web applications at scale.
@@ -38,7 +38,9 @@ const projects = await getCollection("project");
         <h2>I’m a professional software engineer, with experience at</h2>
         {
           experiences.map((experience) => (
-            <Experience experience={experience} />
+            <div class="mt-24">
+              <Experience experience={experience} />
+            </div>
           ))
         }
       </NavSection>
@@ -80,11 +82,11 @@ const projects = await getCollection("project");
   }
 
   h2 {
-    @apply text-2xl font-bold;
+    @apply text-3xl font-bold;
   }
 
   h3 {
-    @apply text-lg font-bold;
+    @apply text-xl leading-none font-bold;
   }
 
   .content-container {

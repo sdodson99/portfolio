@@ -10,8 +10,8 @@
     "Collaborated with mobile teams to design GraphQL schemas",
     "Supported E2E testing teams for multiple successful feature launches"
   ],
-  "skills": ["typescript"],
-  "logoUrl": "",
+  "skills": ["nextjs", "react", "graphql", "nodejs", "typescript"],
+  "logoUrl": "/experiences/paypal.svg",
   "startDate": "2021-06-01",
   "endDate": null
 }
