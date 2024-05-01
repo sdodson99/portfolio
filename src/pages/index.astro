@@ -3,7 +3,8 @@ import { getCollection } from "astro:content";
 import Experience from "../entities/experience/experience.astro";
 import Education from "../entities/education/education.astro";
 import Project from "../entities/project/project.astro";
-import NavSection from "../widgets/nav-section.astro";
+import NavSection from "../widgets/nav-section/nav-section.astro";
+import Header from "../widgets/header/header.astro";
 
 const year = new Date().getFullYear();
 
@@ -21,44 +22,7 @@ const projects = await getCollection("project");
     <title>Portfolio - Sean Dodson</title>
   </head>
   <body>
-    <header class="sticky top-0 py-4">
-      <div class="content-container">
-        <div
-          class="flex justify-between rounded-2xl border bg-white px-8 py-4 shadow-lg"
-        >
-          <div id="currentNavSectionTitleDisplay">Overview</div>
-          <nav>
-            <a href="#overview">Overview</a>
-            <a href="#experience">Experience</a>
-            <a href="#education">Education</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <script>
-            const currentNavSectionTitleDisplay = document.querySelector(
-              "#currentNavSectionTitleDisplay"
-            );
-            const navSectionTitles = [
-              ...document.querySelectorAll("[data-nav-title]"),
-            ];
-
-            function updateCurrentNavSectionTitle() {
-              const currentNavSection = navSectionTitles
-                .filter((item) => item.getBoundingClientRect().y <= 0)
-                .sort((item) => item.getBoundingClientRect().y)[0];
-
-              if (currentNavSectionTitleDisplay) {
-                currentNavSectionTitleDisplay.textContent =
-                  currentNavSection?.getAttribute("data-nav-title") ??
-                  "Overview";
-              }
-            }
-
-            window.addEventListener("scroll", updateCurrentNavSectionTitle);
-          </script>
-        </div>
-      </div>
-    </header>
+    <Header />
     <main class="content-container">
       <NavSection id="overview" title="Overview">
         <p class="text-slate-700">Nice to meet you! I'm</p>

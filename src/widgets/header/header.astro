@@ -1,0 +1,100 @@
+<header class="fixed top-0 w-full py-4">
+  <div class="content-container">
+    <nav class="rounded-2xl border bg-white px-8 py-4 shadow-lg">
+      <div class="flex items-center justify-between">
+        <div id="currentNavSectionTitleDisplay">Overview</div>
+        <button id="navToggleButton" class="hover:bg-gray-100 rounded-2xl p-1 transition duration-100">
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            height="32px"
+            width="32px"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path fill="none" d="M0 0h24v24H0V0z"></path><path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg
+          >
+        </button>
+      </div>
+      <div id="navLinks" class="max-h-0 opacity-0 transition-all duration-300 overflow-hidden">
+        <a
+          href="#overview"
+          class="block py-2 text-slate-500 transition duration-100 hover:text-slate-900"
+          >Overview</a
+        >
+        <a
+          href="#experience"
+          class="block py-2 text-slate-500 transition duration-100 hover:text-slate-900"
+          >Experience</a
+        >
+        <a
+          href="#education"
+          class="block py-2 text-slate-500 transition duration-100 hover:text-slate-900"
+          >Education</a
+        >
+        <a
+          href="#projects"
+          class="block py-2 text-slate-500 transition duration-100 hover:text-slate-900"
+          >Projects</a
+        >
+        <a
+          href="#contact"
+          class="block py-2 text-slate-500 transition duration-100 hover:text-slate-900"
+          >Contact</a
+        >
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="mt-24"></div>
+<script>
+  const currentNavSectionTitleDisplay = document.querySelector(
+    "#currentNavSectionTitleDisplay"
+  );
+  const navSectionTitles = [
+    ...document.querySelectorAll("[data-nav-title]"),
+  ];
+
+  function updateCurrentNavSectionTitle() {
+    const currentNavSection = navSectionTitles
+      .filter((item) => item.getBoundingClientRect().y <= 0)
+      .sort((item) => item.getBoundingClientRect().y)[0];
+
+    if (currentNavSectionTitleDisplay) {
+      currentNavSectionTitleDisplay.textContent =
+        currentNavSection?.getAttribute("data-nav-title") ?? "Overview";
+    }
+  }
+
+  window.addEventListener("scroll", updateCurrentNavSectionTitle);
+
+  const navToggleButton = document.querySelector("#navToggleButton");
+  const navLinks = document.querySelector<HTMLElement>("#navLinks");
+
+  let isOpen = false;
+
+  function toggleNav() {
+    if (!navLinks) {
+      return;
+    }
+
+    navLinks.classList.toggle("opacity-0");
+    navLinks.classList.toggle("opacity-100");
+    navLinks.classList.toggle("mt-4");
+
+    if (isOpen) {
+      navLinks.style.maxHeight = "0px";
+    } else {
+      navLinks.style.maxHeight = `${navLinks.scrollHeight}px`;
+    }
+
+    isOpen = !isOpen;
+  }
+
+  navToggleButton?.addEventListener("click", toggleNav);
+
+  document.querySelectorAll("#navLinks a").forEach((a) => {
+    a.addEventListener("click", toggleNav);
+  });
+</script>
