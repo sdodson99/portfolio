@@ -8,7 +8,8 @@
     "lint": "eslint ./src/**",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -22,6 +23,7 @@
     "eslint": "^9.1.1",
     "eslint-plugin-astro": "^1.0.3",
     "eslint-plugin-jsx-a11y": "^6.8.0",
+    "firebase-tools": "^13.8.0",
     "globals": "^15.0.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
