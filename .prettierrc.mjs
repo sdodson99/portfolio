@@ -9,4 +9,6 @@ export default {
       },
     },
   ],
+  bracketSameLine: true,
+  htmlWhitespaceSensitivity: "ignore",
 };
