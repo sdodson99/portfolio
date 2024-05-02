@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { getEntries } from "astro:content";
-import Timespan from "../time/timespan.astro";
 import SkillListing from "../skill/skill-listing.astro";
 
 interface Props {
@@ -16,8 +15,6 @@ const {
   highlights,
   skills: skillReferences,
   logoUrl,
-  startDate,
-  endDate,
 } = project.data;
 
 const skills = await getEntries(skillReferences);
@@ -37,5 +34,4 @@ const skills = await getEntries(skillReferences);
     <h4>Skills</h4>
     <SkillListing skills={skills} />
   </div>
-  <Timespan startDate={startDate} endDate={endDate} />
 </article>

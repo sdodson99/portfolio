@@ -20,7 +20,7 @@ const projects = await getCollection("project");
   <body>
     <Header />
     <main class="content-container">
-      <NavSection id="overview" title="Overview">
+      <NavSection id="overview">
         <div class="mt-32"></div>
         <p class="text-lg text-slate-700">Nice to meet you! I'm</p>
         <h1 class="mt-8">Sean Dodson</h1>
@@ -30,14 +30,14 @@ const projects = await getCollection("project");
           stack web applications at scale.
         </p>
       </NavSection>
-      <NavSection id="projects" title="Projects">
+      <NavSection id="projects">
         <h2>
           Check out some of my personal projects!
         </h2>
         {projects.map((project) => <Project project={project} />)}
       </NavSection>
-      <NavSection id="contact" title="Contact">
-        <h2>Need help with anything? Let’s get in touch!</h2>
+      <NavSection id="contact">
+        <h2>Anything I can help with? Let’s get in touch!</h2>
         <div>
           <label for="name">Name</label>
           <input id="name" />
