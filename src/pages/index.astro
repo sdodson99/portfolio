@@ -3,113 +3,64 @@ import "@fontsource/kanit";
 import { getCollection } from "astro:content";
 import Project from "../entities/project/project.astro";
 import NavSection from "../widgets/nav-section/nav-section.astro";
-import Header from "../widgets/header/header.astro";
-import Footer from "../widgets/footer/footer.astro";
+import Layout from "../widgets/layout/layout.astro";
 
 const projects = await getCollection("project");
 
 const sortedProjects = projects.sort(
   (a, b) =>
     (b.data.endDate?.getTime() ?? Date.now()) -
-    (a.data.endDate?.getTime() ?? Date.now()),
+    (a.data.endDate?.getTime() ?? Date.now())
 );
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Portfolio - Sean Dodson</title>
-  </head>
-  <body>
-    <Header />
-    <main class="content-container py-32">
-      <NavSection id="overview" className="min-h-screen">
-        <p class="text-lg text-slate-700">Nice to meet you! I'm</p>
-        <h1 class="mt-8">Sean Dodson</h1>
-        <p class="mt-8 text-lg text-slate-700">
-          I’m a passionate software engineer who loves his craft and enjoys
-          working with others to solve problems. I specialize in building full
-          stack web applications at scale.
-        </p>
-      </NavSection>
-      <NavSection id="projects">
-        <h2>
-          I enjoy building software for fun, developing personal projects such
-          as
-        </h2>
-        {
-          sortedProjects.map((project) => (
-            <div class="mt-12">
-              <Project project={project} />
-            </div>
-          ))
-        }
-      </NavSection>
-      <NavSection id="contact" className="mt-32">
-        <h2>Anything I can help with? Let’s get in touch!</h2>
-        <form
-          class="mt-8"
-          action="https://formsubmit.co/contact@seandodson.com"
-          method="POST"
-        >
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" class="mt-1" required />
-          </div>
-          <div class="mt-4">
-            <label for="email">Email (optional)</label>
-            <input id="email" name="email" type="email" class="mt-1" />
-          </div>
-          <div class="mt-4">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" class="mt-1" required
-            ></textarea>
-          </div>
-          <button
-            class="mt-8 w-full rounded-lg bg-[#475BA1] p-4 font-bold text-white transition hover:bg-slate-800"
-          >
-            Send
-          </button>
-        </form>
-      </NavSection>
-    </main>
-    <Footer />
-  </body>
-</html>
-
-<style is:global>
-  body {
-    font-family: Kanit, sans-serif;
-  }
-
-  h1 {
-    @apply text-5xl font-bold;
-  }
-
-  h2 {
-    @apply text-3xl font-bold;
-  }
-
-  h3 {
-    @apply text-xl font-bold leading-none;
-  }
-
-  .content-container {
-    max-width: 800px;
-
-    @apply m-auto px-8;
-  }
-
-  .link {
-    @apply font-bold text-blue-700 hover:text-blue-900;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    @apply block w-full rounded border p-1;
-  }
-</style>
+<Layout title="Portfolio">
+  <NavSection id="overview" className="min-h-screen">
+    <p class="text-lg text-slate-700">Nice to meet you! I'm</p>
+    <h1 class="mt-8">Sean Dodson</h1>
+    <p class="mt-8 text-lg text-slate-700">
+      I’m a passionate software engineer who loves his craft and enjoys working
+      with others to solve problems. I specialize in building full stack web
+      applications at scale.
+    </p>
+  </NavSection>
+  <NavSection id="projects">
+    <h2>
+      I enjoy building software for fun, developing personal projects such as
+    </h2>
+    {
+      sortedProjects.map((project) => (
+        <div class="mt-12">
+          <Project project={project} />
+        </div>
+      ))
+    }
+  </NavSection>
+  <NavSection id="contact" className="mt-32">
+    <h2>Anything I can help with? Let’s get in touch!</h2>
+    <form
+      class="mt-8"
+      action="https://formsubmit.co/contact@seandodson.com"
+      method="POST"
+    >
+      <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" class="mt-1" required />
+      </div>
+      <div class="mt-4">
+        <label for="email">Email (optional)</label>
+        <input id="email" name="email" type="email" class="mt-1" />
+      </div>
+      <div class="mt-4">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" class="mt-1" required
+        ></textarea>
+      </div>
+      <button
+        class="mt-8 w-full rounded-lg bg-[#475BA1] p-4 font-bold text-white transition hover:bg-slate-800"
+      >
+        Send
+      </button>
+    </form>
+  </NavSection>
+</Layout>

@@ -1,0 +1,63 @@
+---
+import Header from "../header/header.astro";
+import Footer from "../footer/footer.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Sean Dodson</title>
+  </head>
+  <body>
+    <div class="min-h-screen">
+      <Header />
+      <main class="content-container py-32">
+        <slot />
+      </main>
+    </div>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  body {
+    font-family: Kanit, sans-serif;
+  }
+
+  h1 {
+    @apply text-5xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl font-bold;
+  }
+
+  h3 {
+    @apply text-xl font-bold leading-none;
+  }
+
+  .content-container {
+    max-width: 800px;
+
+    @apply m-auto px-8;
+  }
+
+  .link {
+    @apply font-bold text-blue-700 hover:text-blue-900;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    @apply block w-full rounded border p-1;
+  }
+</style>
