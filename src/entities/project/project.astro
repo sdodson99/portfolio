@@ -25,11 +25,17 @@ const skills = await getEntries(skillReferences);
 <project-article data-id={id}>
   <article
     id={`${id}Card`}
-    class="cursor-pointer overflow-hidden rounded-lg border transition hover:-translate-y-2 hover:shadow-xl duration-300"
+    class="cursor-pointer overflow-hidden rounded-lg border transition duration-300 hover:-translate-y-2 hover:shadow-xl"
   >
     <div class="relative">
       <div class="absolute z-10 h-full w-full bg-black opacity-25"></div>
-      <img alt={`${name} preview`} src={previewImageUrl} class="w-full" />
+      <img
+        alt={`${name} preview`}
+        src={previewImageUrl}
+        class="w-full"
+        width="1600"
+        height="900"
+      />
     </div>
     <div class="border-t p-4">
       <h3>{name}</h3>
