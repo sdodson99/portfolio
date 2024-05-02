@@ -7,6 +7,11 @@ import Header from "../widgets/header/header.astro";
 const year = new Date().getFullYear();
 
 const projects = await getCollection("project");
+const sortedProjects = projects.sort(
+  (a, b) =>
+    (b.data.endDate?.getTime() ?? Date.now()) -
+    (a.data.endDate?.getTime() ?? Date.now()),
+);
 ---
 
 <html lang="en">
@@ -32,9 +37,15 @@ const projects = await getCollection("project");
       </NavSection>
       <NavSection id="projects">
         <h2>
-          Check out some of my personal projects!
+          I enjoy writing software for fun, building personal projects such as
         </h2>
-        {projects.map((project) => <Project project={project} />)}
+        {
+          sortedProjects.map((project) => (
+            <div class="mt-12">
+              <Project project={project} />
+            </div>
+          ))
+        }
       </NavSection>
       <NavSection id="contact">
         <h2>Anything I can help with? Let’s get in touch!</h2>
@@ -67,12 +78,16 @@ const projects = await getCollection("project");
   }
 
   h3 {
-    @apply text-xl leading-none font-bold;
+    @apply text-xl font-bold leading-none;
   }
 
   .content-container {
     max-width: 650px;
 
     @apply m-auto px-8;
+  }
+
+  .link {
+    @apply font-bold text-blue-700 hover:text-blue-900;
   }
 </style>

@@ -1,15 +1,18 @@
 {
   "name": "Trade Fox",
-  "url": "https://tradefox.app",
-  "highlights": [
-    "A website for analyzing trades in fantasy football leagues",
-    "Iterated and pivoted on concept to find market fit",
-    "Leveraged streaming SSR via NextJS app router to optimize performance",
-    "Setup E2E tests to verify functionality and deploy with confidence",
-    "Setup automated Lighthouse scans to monitor core web vitals and other metrics throughout development"
+  "description": "A trade analyzer for fantasy football leagues. See if you won or lost a trade, catch collusion in your league, and explore real trades for inspiration.",
+  "skills": [
+    "typescript",
+    "nextjs",
+    "react",
+    "nodejs",
+    "tailwind",
+    "firebase",
+    "vitest",
+    "playwright"
   ],
-  "skills": ["typescript", "nextjs", "react", "nodejs"],
-  "logoUrl": "",
+  "url": "https://tradefox.app",
+  "previewImageUrl": "/projects/trade-fox/preview.png",
   "startDate": "2023-08-01",
   "endDate": "2023-12-01"
 }

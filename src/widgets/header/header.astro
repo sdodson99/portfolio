@@ -1,4 +1,4 @@
-<header class="fixed top-0 w-full bg-white py-4 shadow-lg">
+<header class="fixed top-0 z-20 w-full bg-white py-4 shadow-lg">
   <nav class="content-container">
     <div class="flex items-center justify-between">
       <div>
@@ -25,30 +25,34 @@
     </div>
     <div
       id="navLinksContainer"
-      class="max-h-0 invisible overflow-hidden opacity-0 transition-all duration-300"
+      class="invisible max-h-0 overflow-hidden opacity-0 transition-all duration-300"
     >
       <a
         href="#overview"
-        class="block py-4 m-1 text-gray-600 underline transition duration-100 hover:text-black"
+        class="m-1 block py-4 text-gray-600 underline transition duration-100 hover:text-black"
         >Overview</a
       >
       <a
         href="#projects"
-        class="block py-4 m-1 text-gray-600 underline transition duration-100 hover:text-black"
+        class="m-1 block py-4 text-gray-600 underline transition duration-100 hover:text-black"
         >Projects</a
       >
       <a
         href="#contact"
-        class="block py-4 m-1 text-gray-600 underline transition duration-100 hover:text-black"
+        class="m-1 block py-4 text-gray-600 underline transition duration-100 hover:text-black"
         >Contact</a
       >
     </div>
   </nav>
 </header>
 <script>
-  const navToggleButton = document.querySelector<HTMLButtonElement>("#navToggleButton");
-  const navLinksContainer = document.querySelector<HTMLElement>("#navLinksContainer");
-  const navLinks= document.querySelectorAll<HTMLAnchorElement>("#navLinksContainer a");
+  const navToggleButton =
+    document.querySelector<HTMLButtonElement>("#navToggleButton");
+  const navLinksContainer =
+    document.querySelector<HTMLElement>("#navLinksContainer");
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>(
+    "#navLinksContainer a",
+  );
 
   let isOpen = false;
 

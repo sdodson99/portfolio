@@ -11,27 +11,61 @@ const { project } = Astro.props;
 
 const {
   name,
-  url,
-  highlights,
+  description,
   skills: skillReferences,
-  logoUrl,
+  url,
+  previewImageUrl,
 } = project.data;
+
+const { id } = project;
 
 const skills = await getEntries(skillReferences);
 ---
 
-<article>
-  <img alt="" src={logoUrl} />
-  <h3>{name}</h3>
-  <div>{url}</div>
-  <div>
-    <h4>Highlights</h4>
-    <ul>
-      {highlights.map((highlight) => <li>{highlight}</li>)}
-    </ul>
-  </div>
-  <div>
-    <h4>Skills</h4>
-    <SkillListing skills={skills} />
-  </div>
-</article>
+<project-article data-id={id}>
+  <article
+    id={`${id}Card`}
+    class="cursor-pointer overflow-hidden rounded-lg border"
+  >
+    <div class="relative">
+      <div class="absolute z-10 h-full w-full bg-black opacity-25"></div>
+      <img alt={`${name} preview`} src={previewImageUrl} class="w-full" />
+    </div>
+    <div class="border-t p-4">
+      <h3>{name}</h3>
+      <div class="mt-2">
+        <a href={url} class="link" target="_blank" id={`${id}Link`}>{url}</a>
+      </div>
+      <p class="mt-4 text-gray-700">{description}</p>
+    </div>
+    <div class="border-t p-4">
+      <div class="sr-only">Skills</div>
+      <SkillListing skills={skills} />
+    </div>
+  </article>
+</project-article>
+<script>
+  class ProjectArticle extends HTMLElement {
+    constructor() {
+      super();
+
+      const id = this.dataset.id;
+
+      const card = document.querySelector<HTMLElement>(`#${id}Card`);
+      const link = document.querySelector<HTMLAnchorElement>(`#${id}Link`);
+
+      card?.addEventListener("click", () => {
+        const isTextSelected = window.getSelection()?.toString();
+
+        if (isTextSelected) {
+          return;
+        }
+
+        link?.click();
+      });
+      link?.addEventListener("click", (e) => e.stopPropagation());
+    }
+  }
+
+  customElements.define("project-article", ProjectArticle);
+</script>

@@ -4,10 +4,10 @@ const projectCollection = defineCollection({
   type: "data",
   schema: z.object({
     name: z.string(),
-    url: z.string(),
-    highlights: z.array(z.string()),
+    description: z.string(),
     skills: z.array(reference("skill")),
-    logoUrl: z.string(),
+    url: z.string(),
+    previewImageUrl: z.string(),
     startDate: z.string().transform((value) => new Date(value)),
     endDate: z
       .string()

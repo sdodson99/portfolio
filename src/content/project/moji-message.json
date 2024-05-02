@@ -1,0 +1,16 @@
+{
+  "name": "Moji Message",
+  "description": "A fun tool to encode a message with emojis. Try it out and send one to a friend!",
+  "skills": [
+    "typescript",
+    "react",
+    "tailwind",
+    "firebase",
+    "vitest",
+    "playwright"
+  ],
+  "url": "https://emoji.seandodson.com",
+  "previewImageUrl": "/projects/moji-message/preview.png",
+  "startDate": "2022-11-01",
+  "endDate": "2022-11-01"
+}

@@ -11,12 +11,11 @@ const { skills } = Astro.props;
 <ul class="flex">
   {
     skills.map((skill) => (
-      <li>
+      <li class="mr-4 block">
         <img
-          class="mb-2 mr-2"
           alt={skill.data.name}
-          height="35"
-          width="35"
+          height="25"
+          width="25"
           src={skill.data.logoUrl}
         />
       </li>
