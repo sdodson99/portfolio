@@ -25,21 +25,21 @@
     </div>
     <div
       id="navLinksContainer"
-      class="max-h-0 overflow-hidden opacity-0 transition-all duration-300"
+      class="max-h-0 invisible overflow-hidden opacity-0 transition-all duration-300"
     >
       <a
         href="#overview"
-        class="block py-4 text-gray-600 underline transition duration-100 hover:text-black"
+        class="block py-4 m-1 text-gray-600 underline transition duration-100 hover:text-black"
         >Overview</a
       >
       <a
         href="#projects"
-        class="block py-4 text-gray-600 underline transition duration-100 hover:text-black"
+        class="block py-4 m-1 text-gray-600 underline transition duration-100 hover:text-black"
         >Projects</a
       >
       <a
         href="#contact"
-        class="block py-4 text-gray-600 underline transition duration-100 hover:text-black"
+        class="block py-4 m-1 text-gray-600 underline transition duration-100 hover:text-black"
         >Contact</a
       >
     </div>
@@ -60,6 +60,7 @@
     navLinksContainer.classList.toggle("opacity-0");
     navLinksContainer.classList.toggle("opacity-100");
     navLinksContainer.classList.toggle("mt-4");
+    navLinksContainer.classList.toggle("invisible");
 
     if (isOpen) {
       navLinksContainer.style.maxHeight = "0px";
