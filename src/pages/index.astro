@@ -53,7 +53,8 @@ const sortedProjects = projects.sort(
         <form
           class="mt-8"
           action="https://formsubmit.co/contact@seandodson.com"
-          method="POST">
+          method="POST"
+        >
           <div>
             <label for="name">Name</label>
             <input id="name" name="name" type="text" class="mt-1" required />
@@ -64,16 +65,12 @@ const sortedProjects = projects.sort(
           </div>
           <div class="mt-4">
             <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              class="mt-1"
-              required>
-            </textarea>
+            <textarea id="message" name="message" rows="5" class="mt-1" required
+            ></textarea>
           </div>
           <button
-            class="mt-8 w-full rounded-lg bg-[#475BA1] p-4 font-bold text-white transition hover:bg-slate-800">
+            class="mt-8 w-full rounded-lg bg-[#475BA1] p-4 font-bold text-white transition hover:bg-slate-800"
+          >
             Send
           </button>
         </form>
