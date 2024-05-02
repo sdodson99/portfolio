@@ -3,10 +3,10 @@ import { getCollection } from "astro:content";
 import Project from "../entities/project/project.astro";
 import NavSection from "../widgets/nav-section/nav-section.astro";
 import Header from "../widgets/header/header.astro";
-
-const year = new Date().getFullYear();
+import Footer from "../widgets/footer/footer.astro";
 
 const projects = await getCollection("project");
+
 const sortedProjects = projects.sort(
   (a, b) =>
     (b.data.endDate?.getTime() ?? Date.now()) -
@@ -25,7 +25,7 @@ const sortedProjects = projects.sort(
   <body>
     <Header />
     <main class="content-container">
-      <NavSection id="overview">
+      <NavSection id="overview" className="min-h-screen">
         <div class="mt-32"></div>
         <p class="text-lg text-slate-700">Nice to meet you! I'm</p>
         <h1 class="mt-8">Sean Dodson</h1>
@@ -60,11 +60,7 @@ const sortedProjects = projects.sort(
         <button>Send</button>
       </NavSection>
     </main>
-    <footer class="content-container">
-      <a href="https://github.com">GitHub</a>
-      <a href="https://linkedin.com">LinkedIn</a>
-      <p>Copyright © {year} Sean Dodson. All rights reserved.</p>
-    </footer>
+    <Footer />
   </body>
 </html>
 

@@ -1,12 +1,13 @@
 ---
 interface Props {
   id: string;
+  className?: string;
 }
 
-const { id } = Astro.props;
+const { id, className } = Astro.props;
 ---
 
-<section class="min-h-screen py-12">
-  <div id={id} class="relative -top-48"></div>
+<section class={`${className} py-12`}>
+  <div id={id} class="relative -top-32"></div>
   <slot />
 </section>
