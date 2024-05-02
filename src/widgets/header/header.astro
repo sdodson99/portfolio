@@ -7,22 +7,11 @@
       <button
         id="navToggleButton"
         class="rounded-2xl p-1 transition duration-100 hover:bg-gray-100"
+        aria-label="Toggle navigation menu"
       >
-        <svg
-          stroke="currentColor"
-          fill="currentColor"
-          stroke-width="0"
-          viewBox="0 0 24 24"
-          height="32px"
-          width="32px"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Toggle navigation menu</title>
-          <path fill="none" d="M0 0h24v24H0V0z"></path><path
-            d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-          >
-          </path>
-        </svg>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
       </button>
     </div>
     <div
@@ -30,19 +19,19 @@
       class="invisible max-h-0 overflow-hidden opacity-0 transition-all duration-300"
     >
       <a
-        href="#overview"
+        href="/#overview"
         class="m-1 block py-4 text-slate-600 underline transition duration-100 hover:text-black"
       >
         Overview
       </a>
       <a
-        href="#projects"
+        href="/#projects"
         class="m-1 block py-4 text-slate-600 underline transition duration-100 hover:text-black"
       >
         Projects
       </a>
       <a
-        href="#contact"
+        href="/#contact"
         class="m-1 block py-4 text-slate-600 underline transition duration-100 hover:text-black"
       >
         Contact
@@ -50,13 +39,34 @@
     </div>
   </nav>
 </header>
+<style>
+  .line {
+    width: 32px;
+    height: 4px;
+    margin: 4px auto;
+
+    @apply m-1 block bg-slate-800 transition duration-300;
+  }
+
+  .open .line:nth-child(1) {
+    @apply rotate-45 translate-y-2;
+  }
+
+  .open .line:nth-child(3) {
+    @apply -rotate-45 -translate-y-2;
+  }
+
+  .open .line:nth-child(2) {
+    @apply opacity-0;
+  }
+</style>
 <script>
   const navToggleButton =
     document.querySelector<HTMLButtonElement>("#navToggleButton");
   const navLinksContainer =
     document.querySelector<HTMLElement>("#navLinksContainer");
   const navLinks = document.querySelectorAll<HTMLAnchorElement>(
-    "#navLinksContainer a",
+    "#navLinksContainer a"
   );
 
   let isOpen = false;
@@ -70,6 +80,8 @@
     navLinksContainer.classList.toggle("opacity-100");
     navLinksContainer.classList.toggle("mt-4");
     navLinksContainer.classList.toggle("invisible");
+
+    navToggleButton?.classList.toggle("open");
 
     if (isOpen) {
       navLinksContainer.style.maxHeight = "0px";
