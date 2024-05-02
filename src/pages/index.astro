@@ -15,9 +15,11 @@ const sortedProjects = projects.sort(
 
 <Layout title="Portfolio">
   <NavSection id="overview" className="min-h-screen">
-    <p class="text-lg text-slate-700">Nice to meet you! I'm</p>
-    <h1 class="mt-8">Sean Dodson</h1>
-    <p class="mt-8 text-lg text-slate-700">
+    <p class="fade-in text-lg text-slate-700">
+      Nice to meet you! I'm
+    </p>
+    <h1 class="fade-in mt-8 duration-1000">Sean Dodson</h1>
+    <p class="fade-in mt-8 text-lg text-slate-700">
       I’m a passionate software engineer who loves his craft and enjoys working
       with others to solve problems. I specialize in building full stack web
       applications at scale.
@@ -63,3 +65,12 @@ const sortedProjects = projects.sort(
     </form>
   </NavSection>
 </Layout>
+<style is:global>
+  .fade-in {
+    @apply opacity-0 transition duration-1000;
+  }
+
+  .loaded .fade-in {
+    @apply -translate-y-4 opacity-100;
+  }
+</style>
