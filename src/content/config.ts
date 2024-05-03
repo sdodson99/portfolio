@@ -7,6 +7,7 @@ const projectCollection = defineCollection({
     description: z.string(),
     skills: z.array(reference("skill")),
     url: z.string(),
+    sourceCodeUrl: z.string().optional(),
     previewImageUrl: z.string(),
     startDate: z.string().transform((value) => new Date(value)),
     endDate: z

@@ -3,6 +3,7 @@
   "description": "A showcase of my work. You're viewing it right now!",
   "skills": ["typescript", "astro", "tailwind", "firebase"],
   "url": "https://seandodson.com",
+  "sourceCodeUrl": "https://github.com/sdodson99/portfolio",
   "previewImageUrl": "/projects/portfolio/preview.png",
   "startDate": "2024-04-01",
   "endDate": "2024-05-01",

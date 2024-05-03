@@ -10,6 +10,7 @@
     "playwright"
   ],
   "url": "https://emoji.seandodson.com",
+  "sourceCodeUrl": "https://github.com/sdodson99/moji-message",
   "previewImageUrl": "/projects/moji-message/preview.png",
   "startDate": "2022-11-01",
   "endDate": "2022-11-01",
