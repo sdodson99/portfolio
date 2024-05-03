@@ -13,6 +13,7 @@ const projectCollection = defineCollection({
       .string()
       .transform((value) => new Date(value))
       .nullable(),
+    score: z.number(),
   }),
 });
 
