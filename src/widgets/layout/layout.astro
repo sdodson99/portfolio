@@ -39,7 +39,7 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
   </head>
-  <body class="transition">
+  <body class="transition bg-white dark:bg-slate-900">
     <div class="min-h-screen">
       <Header />
       <main class="content-container">
@@ -60,7 +60,7 @@ const {
       h1,
       h2,
       h3 {
-        @apply text-slate-800;
+        @apply text-slate-800 dark:text-slate-100;
       }
 
       h1 {
@@ -82,13 +82,13 @@ const {
       }
 
       .link {
-        @apply font-bold text-blue-700 hover:text-blue-900;
+        @apply font-bold text-blue-700 hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-400 transition;
       }
 
       input[type="text"],
       input[type="email"],
       textarea {
-        @apply block w-full rounded border p-1;
+        @apply block w-full rounded border p-1 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-50;
       }
     </style>
   </body>

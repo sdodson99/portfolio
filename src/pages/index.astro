@@ -17,11 +17,11 @@ const sortedProjects = projects.sort(
 <Layout title="Portfolio">
   <NavSection id="overview" className="min-h-screen">
     <div class="mt-32">
-      <p class="fade-in text-lg font-thin text-slate-600 sm:text-2xl">
+      <p class="fade-in text-lg font-thin text-slate-600 dark:text-slate-200 sm:text-2xl">
         Nice to meet you! I'm
       </p>
       <h1 class="fade-in mt-8 duration-1000 sm:text-7xl">Sean Dodson</h1>
-      <p class="fade-in mt-8 text-lg font-thin text-slate-600 sm:text-2xl">
+     <p class="fade-in mt-8 text-lg font-thin text-slate-600 dark:text-slate-200 sm:text-2xl">
         I’m a passionate software engineer who loves his craft and enjoys
         working with others to solve problems. I specialize in building
         front-end web applications at scale.
@@ -32,7 +32,7 @@ const sortedProjects = projects.sort(
       >
         <a
           href="/#projects"
-          class="mb-8 rounded-full border fill-primary p-4 transition hover:bg-slate-800 hover:fill-white"
+          class="mb-8 rounded-full border fill-primary p-4 transition hover:bg-slate-800 dark:hover:bg-slate-100 hover:fill-white hover:dark:fill-slate-800 dark:fill-secondary"
           aria-label="View my projects"
         >
           <svg
@@ -61,7 +61,7 @@ const sortedProjects = projects.sort(
       ))
     }
   </NavSection>
-  <NavSection id="contact" className="mt-32">
+  <NavSection id="contact" className="my-32">
     <h2>Anything I can help with? Just want to connect? Let’s get in touch!</h2>
     <form
       class="mt-8"
@@ -69,20 +69,20 @@ const sortedProjects = projects.sort(
       method="POST"
     >
       <div>
-        <label for="name">Name</label>
+        <label for="name" class="dark:text-slate-50">Name</label>
         <input id="name" name="name" type="text" class="mt-1" required />
       </div>
       <div class="mt-4">
-        <label for="email">Email (optional)</label>
+        <label for="email" class="dark:text-slate-50">Email (optional)</label>
         <input id="email" name="email" type="email" class="mt-1" />
       </div>
       <div class="mt-4">
-        <label for="message">Message</label>
+        <label for="message" class="dark:text-slate-50">Message</label>
         <textarea id="message" name="message" rows="5" class="mt-1" required
         ></textarea>
       </div>
       <button
-        class="mt-8 w-full rounded-lg bg-primary p-4 font-bold text-white transition hover:bg-slate-800"
+        class="mt-8 w-full rounded-lg bg-primary p-4 font-bold text-white transition hover:bg-slate-800 dark:bg-secondary dark:text-slate-800 dark:hover:bg-white"
       >
         Send Message
       </button>

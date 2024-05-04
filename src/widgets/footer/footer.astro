@@ -5,17 +5,17 @@ const githubProfileUrl = "https://github.com/sdodson99";
 const linkedInProfileUrl = "https://www.linkedin.com/in/sean-dodson21/";
 ---
 
-<footer class="border-t py-8">
+<footer class="border-t dark:border-slate-800 py-8">
   <section class="flex flex-col md:flex-row items-center justify-between content-container">
     <div class="flex items-center justify-center">
       <a
         href={githubProfileUrl}
         target="_blank"
         referrerpolicy="no-referrer"
-        class="mx-2 md:ml-0 md:mr-4 p-1"
+        class="mx-2 md:ml-0 md:mr-4 p-1 hover:dark:bg-slate-700 transition rounded-lg"
       >
         <svg
-          class="fill-slate-800"
+          class="fill-slate-600 dark:fill-slate-200"
           viewBox="0 0 128 128"
           width="32"
           height="32"
@@ -39,10 +39,10 @@ const linkedInProfileUrl = "https://www.linkedin.com/in/sean-dodson21/";
         href={linkedInProfileUrl}
         target="_blank"
         referrerpolicy="no-referrer"
-        class="mx-2 md:ml-0 md:mr-4 p-1"
+        class="mx-2 md:ml-0 md:mr-4 p-1 hover:dark:bg-slate-700 transition rounded-lg"
       >
         <svg
-          class="fill-slate-800"
+          class="fill-slate-600 dark:fill-slate-200"
           viewBox="0 0 128 128"
           width="32"
           height="32"
@@ -57,6 +57,6 @@ const linkedInProfileUrl = "https://www.linkedin.com/in/sean-dodson21/";
         </svg>
       </a>
     </div>
-    <p class="mt-4 md:mt-0 text-center text-slate-600">Copyright © {year} Sean Dodson. All rights reserved.</p>
+    <p class="mt-4 md:mt-0 text-center text-slate-600 dark:text-slate-200">Copyright © {year} Sean Dodson. All rights reserved.</p>
   </section>
 </footer>
