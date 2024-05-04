@@ -11,7 +11,7 @@ const { skills } = Astro.props;
 <ul class="flex flex-wrap">
   {
     skills.map((skill) => (
-      <li class="my-1 mr-2 p-1 hover:bg-slate-100 transition duration-200 rounded-lg block">
+      <li class="my-1 mr-2 block rounded-lg p-1 transition duration-200 hover:bg-slate-100">
         <a href={skill.data.url} target="_blank" referrerpolicy="no-referrer">
           <img
             alt={skill.data.name}

@@ -1,5 +1,7 @@
 ---
 import "@fontsource/kanit";
+import "@fontsource/kanit/200.css";
+import "@fontsource/kanit/600.css";
 import { SEO } from "astro-seo";
 import Header from "../header/header.astro";
 import Footer from "../footer/footer.astro";
@@ -22,12 +24,12 @@ const {
       openGraph={{
         basic: {
           title: `${title} - Sean Dodson`,
-          type: 'website',
-          image: 'https://seandodson.com/projects/portfolio/preview.png'
+          type: "website",
+          image: "https://seandodson.com/projects/portfolio/preview.png",
         },
         optional: {
           description,
-        }
+        },
       }}
       titleTemplate="%s - Sean Dodson"
       description={description}
@@ -50,43 +52,44 @@ const {
         document.body.classList.add("loaded");
       });
     </script>
-  </body><style is:global>
-    body {
-      font-family: Kanit, sans-serif;
-    }
+    <style is:global>
+      body {
+        font-family: Kanit, sans-serif;
+      }
 
-    h1,
-    h2,
-    h3 {
-      @apply text-slate-800;
-    }
+      h1,
+      h2,
+      h3 {
+        @apply text-slate-800;
+      }
 
-    h1 {
-      @apply text-5xl font-bold;
-    }
+      h1 {
+        @apply text-5xl font-bold;
+      }
 
-    h2 {
-      @apply text-3xl font-bold;
-    }
+      h2 {
+        @apply text-3xl font-bold;
+      }
 
-    h3 {
-      @apply text-xl font-bold leading-none;
-    }
+      h3 {
+        @apply text-xl font-bold leading-none;
+      }
 
-    .content-container {
-      max-width: 800px;
+      .content-container {
+        max-width: 800px;
 
-      @apply m-auto px-8;
-    }
+        @apply m-auto px-8;
+      }
 
-    .link {
-      @apply font-bold text-blue-700 hover:text-blue-900;
-    }
+      .link {
+        @apply font-bold text-blue-700 hover:text-blue-900;
+      }
 
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      @apply block w-full rounded border p-1;
-    }
-  </style>
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        @apply block w-full rounded border p-1;
+      }
+    </style>
+  </body>
 </html>
