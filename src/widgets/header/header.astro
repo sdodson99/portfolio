@@ -1,19 +1,26 @@
 ---
 import NavLink from "./nav-link.astro";
 import NavToggleButton from "./nav-toggle-button.astro";
+import DarkModeToggleButton from "./dark-mode-toggle-button.astro";
 ---
 
-<header class="fixed top-0 z-20 w-full bg-white py-4 shadow-lg">
-  <nav class="content-container items-center justify-between md:flex">
-    <div class="flex items-center justify-between">
-      <div>
-        <img src="/logo.svg" alt="Sean Dodson" width="40" height="40" />
-      </div>
-      <NavToggleButton id="navToggleButton" />
+<header class="fixed top-0 z-20 w-full bg-white py-4 shadow-lg dark:bg-slate-800 transition">
+  <nav class="content-container flex flex-wrap items-center">
+    <div class="flex-1">
+      <img
+        src="/logo.svg"
+        alt="Sean Dodson"
+        width="40"
+        height="40"
+      />
     </div>
+    <div class="flex items-center md:order-1">
+      <DarkModeToggleButton class="mr-2 p-1 md:ml-1 md:mr-0 md:px-2 md:py-1"/>
+    </div>
+    <NavToggleButton id="navToggleButton" />
     <div
       id="navLinksContainer"
-      class="invisible max-h-0 overflow-hidden opacity-0 transition-all duration-300 md:visible md:mt-0 md:flex md:max-h-none md:opacity-100"
+      class="invisible max-h-0 w-full overflow-hidden opacity-0 transition-all duration-300 md:visible md:mt-0 md:flex md:max-h-none md:w-auto md:opacity-100"
     >
       <NavLink href="/#overview">Overview</NavLink>
       <NavLink href="/#projects">Projects</NavLink>
@@ -27,7 +34,7 @@ import NavToggleButton from "./nav-toggle-button.astro";
   const navLinksContainer =
     document.querySelector<HTMLElement>("#navLinksContainer");
   const navLinks = document.querySelectorAll<HTMLAnchorElement>(
-    "#navLinksContainer a",
+    "#navLinksContainer a"
   );
 
   let isOpen = false;

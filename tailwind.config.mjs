@@ -5,9 +5,11 @@ export default {
     extend: {
       colors: {
         primary: "#475BA1",
+        secondary: "#FFD97A",
       },
     },
   },
+  darkMode: "selector",
   plugins: [],
   future: {
     hoverOnlyWhenSupported: true,
