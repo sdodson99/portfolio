@@ -1,5 +1,6 @@
 {
   "id": "nodejs",
   "name": "Node JS",
+  "url": "https://nodejs.org",
   "logoUrl": "/skills/nodejs.svg"
 }

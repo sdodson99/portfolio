@@ -22,6 +22,7 @@ const skillCollection = defineCollection({
   type: "data",
   schema: z.object({
     name: z.string(),
+    url: z.string(),
     logoUrl: z.string(),
   }),
 });
